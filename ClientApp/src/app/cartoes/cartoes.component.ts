@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppCartoesService } from '../app.cartoes.service';
+import { CartoesService } from '../_services/cartoes.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class CartoesComponent {
   title = 'Cartoes';
 
-  constructor(private AppCartoesService: AppCartoesService) { }
+  constructor(private CartoesService: CartoesService) { }
 
   data: any;
   CartaoForm: FormGroup;
@@ -29,13 +29,13 @@ export class CartoesComponent {
   }
 
   getdata() {
-    this.AppCartoesService.getData().subscribe((data: any[]) => {
+    this.CartoesService.getData().subscribe((data: any[]) => {
       this.data = data;
     })
   }
 
   deleteData(id: number) {
-    this.AppCartoesService.deleteData(id).subscribe(() => {
+    this.CartoesService.deleteData(id).subscribe(() => {
       this.getdata();
     })
   }
@@ -45,7 +45,7 @@ export class CartoesComponent {
     if (this.CartaoForm.invalid) {
       return;
     }
-    this.AppCartoesService.postData(this.CartaoForm.value).subscribe((data: any[]) => {
+    this.CartoesService.postData(this.CartaoForm.value).subscribe((data: any[]) => {
       this.data = data;
       this.resetFrom();
     })
@@ -55,7 +55,7 @@ export class CartoesComponent {
     if (this.CartaoForm.invalid) {
       return;
     }
-    this.AppCartoesService.putData(this.CartaoForm.value.Id, this.CartaoForm.value).subscribe((data: any[]) => {
+    this.CartoesService.putData(this.CartaoForm.value.Id, this.CartaoForm.value).subscribe((data: any[]) => {
       this.data = data;
       this.resetFrom();
     })

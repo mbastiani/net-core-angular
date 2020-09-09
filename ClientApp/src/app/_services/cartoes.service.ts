@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
     providedIn: 'root'
 })
 
-export class AppCartoesService {
+export class CartoesService {
 
     constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
     httpOptions = {

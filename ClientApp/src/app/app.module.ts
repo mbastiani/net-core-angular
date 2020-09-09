@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 
-import { AppCartoesService } from './app.cartoes.service';
+import { CartoesService } from './_services/cartoes.service';
 import { CartoesComponent } from "./cartoes/cartoes.component";
 
 @NgModule({
@@ -28,7 +28,7 @@ import { CartoesComponent } from "./cartoes/cartoes.component";
       { path: 'cartoes', component: CartoesComponent }
     ])
   ],
-  providers: [AppCartoesService],
+  providers: [CartoesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
