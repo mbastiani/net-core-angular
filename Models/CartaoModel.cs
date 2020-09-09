@@ -1,9 +1,9 @@
 using System;
 namespace NetCoreAngular.Models
 {
-    public class PagamentoModel
+    public class CartaoModel
     {
-        public PagamentoModel(int id, string nomeTitular, string numeroCartao, string dataExpiracao, string cvv)
+        public CartaoModel(int id, string nomeTitular, string numeroCartao, string dataExpiracao, string cvv)
         {
             Id = id;
             NomeTitular = nomeTitular;
@@ -17,5 +17,18 @@ namespace NetCoreAngular.Models
         public string NumeroCartao { get; private set; }
         public string DataExpiracao { get; private set; }
         public string CVV { get; private set; }
+
+        public void DefinirId(int id)
+        {
+            Id = id;
+        }
+
+        public void AtualizarDados(string nomeTitular, string numeroCartao, string dataExpiracao, string cvv)
+        {
+            NomeTitular = nomeTitular;
+            NumeroCartao = numeroCartao;
+            DataExpiracao = dataExpiracao;
+            CVV = cvv;
+        }
     }
 }
